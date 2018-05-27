@@ -50,13 +50,13 @@ request.forEach(function(element) {
 
 
 // read more button, hide/show `full` on click
-function clickShow(thing) {
-    let element = document.querySelector("#full").style.display;
+function clickShow() {
+    let element = document.querySelector("#full");
     // document.querySelector("#full").style.visibility = "visible";
-    if (element === "none") {
-        element = "block";
+    if (element.style.display === "none") {
+        element.style.display = "block";
     } else {
-        element = "none";
+        element.style.display = "none";
     }
 }
 

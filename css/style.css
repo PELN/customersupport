@@ -49,3 +49,6 @@ p {
 #completed {
   width: 10vw;
   height: 5vh; }
+
+#full {
+  display: none; }
