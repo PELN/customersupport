@@ -2,6 +2,8 @@
 document.addEventListener("DOMContentLoaded", getData);
 
 let requestObj;
+let done = document.querySelector("#done");
+// let button;
 
 // fetch json
 async function getData(){
@@ -36,42 +38,44 @@ request.forEach(function(element) {
         clone.querySelector("#importance").style.backgroundColor = "yellow";
     }
 
-    
-    clone.querySelector("#show").addEventListener("click", clickShow);
-    
-    
 
-    clone.querySelector("#completed").addEventListener("click", complete);
-    // append child
+    clone.querySelector("#show").addEventListener("click", ()=>{
+        let clicked = event.target;
+        let element = clicked.nextElementSibling;
+        // let element = document.querySelector("#full");
+
+        if (element.style.display === "none") {
+            element.style.display = "block";
+        } else {
+            element.style.display = "none";
+        }
+    });
+
+    clone.querySelector("#completed").addEventListener("click", ()=>{
+        let clicked = event.target;
+        let li = clicked.parentElement;
+        li.style.display = "none";
+
+            // li.addEventListener("animationend", myEndFunction);
+
+            // function myEndFunction() {
+            //     this.style.transform = "translateY(-300px)";
+            // }
+
+
+        // document.querySelector("#all").style.transform = "translateY(-300px)";
+
+        
+    });
+
+
     section.appendChild(clone);
 });
 
 }
 
 
-// read more button, hide/show `full` on click
-function clickShow() {
-    let element = document.querySelector("#full");
-    // document.querySelector("#full").style.visibility = "visible";
-    if (element.style.display === "none") {
-        element.style.display = "block";
-    } else {
-        element.style.display = "none";
-    }
-}
 
-
-
-// button for completed / remove request - on animationend: alert: are you sure you want to remove the request?
-//append to another place
-
-function complete() {
-    console.log("completedddd")
-    
-    alert("are you sure you want to remove the")
-
-
-}
 
 
 
